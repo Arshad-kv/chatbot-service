@@ -85,3 +85,12 @@ app.listen(port, () => {
 });
 
 app.get("/health", (req, res) => res.status(200).send("ok"));
+const path = require("path");
+
+// Serve static files (index.html, loader.gif, etc.)
+app.use(express.static(__dirname));
+
+// Show index.html on root "/"
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
