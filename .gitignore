@@ -1,2 +1,17 @@
-.env
+# Node
 node_modules/
+npm-debug.log*
+
+# Env / secrets
+.env
+*.txt
+*.key
+
+# Terraform
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+
+# OS
+.DS_Store

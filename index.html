@@ -94,6 +94,7 @@
 
     async function sendMessage() {
       const userMessage = userInput.value;
+      if (!userMessage) return;
       userInput.value = ''; // Clear input field
       console.log(userMessage)
       try {
@@ -104,6 +105,11 @@
           },
           body: JSON.stringify({ userInput: userMessage }),
         });
+        if (!response.ok) {
+          const errText = await response.text();
+          throw new Error(errText);
+         }
+        
 
         const data = await response.json();
         console.log(data)
